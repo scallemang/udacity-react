@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
+import UserList from './UserList';
 
 class MovieCard extends Component {
   render() {
+    const { usersWhoLikedMovie, movieInfo, users } = this.props;
+
    	return (
-      <div className='movie-card'>
-	      <h2>Movie Name</h2>
-      </div>
+      <li key={movieInfo.id}>
+        <h2>{movieInfo.name}</h2>
+        <h3>Liked By:</h3>
+        <UserList usersWhoLikedMovie={usersWhoLikedMovie} users={users} />
+      </li>
     )
   }
 }
