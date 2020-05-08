@@ -30,8 +30,8 @@ class App extends Component {
         </header>
         <div className="game">
           <h2>Mental Math</h2>
-          <Game />
-          <Score />
+          <Game handleAnswer={this.handleAnswer} />
+          <Score numCorrect={this.state.correctAnswer} numQuestions={this.state.numQuestions} />
         </div>
       </div>
     );
