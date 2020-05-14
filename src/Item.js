@@ -1,16 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-class Item extends Component {
-  static propTypes = {
-    item: PropTypes.string.isRequired, 
-  }
-  
-  render() {
-    return(
-      <li>{ this.props.item }</li> 
-    )
-  }
+const Item = props => (
+  <li>{ props.item }</li> 
+)
+
+Item.propTypes = {
+  item: PropTypes.string.isRequired, 
 }
 
 export default Item;

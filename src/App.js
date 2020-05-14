@@ -22,7 +22,6 @@ class App extends React.Component {
 
   handleDeleteLastItem = event => {
     this.setState(prevState => ({ items: this.state.items.slice(0, -1) }));
-    console.log( this.state.items );
   };
   
   render() {
