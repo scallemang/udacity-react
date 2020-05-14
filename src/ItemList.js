@@ -3,10 +3,14 @@ import Item from './Item';
 import PropTypes from 'prop-types';
 
 class ItemList extends Component {
+  static propTypes = {
+    items: PropTypes.array.isRequired, 
+  }
+  
   render() {
     return(
     	<ol className="item-list">
-          {this.state.items.map((item, index) => <li key={index}>{item}</li>)}
+          {this.props.items.map((item, index) => <Item key={ index } item={ item } />)}
         </ol> 
     )
   }
