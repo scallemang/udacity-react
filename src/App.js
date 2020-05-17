@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import AddUser from './AddUser';
 
 /*
 This exercise will help you put together and practice all of the concepts you've
@@ -11,12 +12,26 @@ The instructions for this project are located in the `instructions.md` file.
 */
 
 class App extends Component {
-  render() {
+  state = {
+	users: [],    
+  }
+
+  createContact = user => {
+   this.setState( (prevState) => ({
+    users: [...prevState.users, user], 
+   })
+  )}
+
+render() {
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">ReactND - Coding Practice</h1>
+		  <AddUser
+  			users={this.state.users}
+			onAddUser={this.createContact}
+  		  />
         </header>
       </div>
     );
