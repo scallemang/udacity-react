@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import AddUser from './AddUser';
+import UserList from './UserList';
 
 /*
 This exercise will help you put together and practice all of the concepts you've
@@ -28,11 +29,14 @@ render() {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">ReactND - Coding Practice</h1>
-		  <AddUser
+        </header>
+  		<AddUser
   			users={this.state.users}
 			onAddUser={this.createContact}
-  		  />
-        </header>
+  		/>
+		<UserList
+			users={this.state.users}
+		/>
       </div>
     );
   }

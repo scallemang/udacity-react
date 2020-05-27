@@ -11,10 +11,28 @@ class AddUser extends Component {
     },
     userExists: false,
   };
+
+  contactExists = currUsername => {
+    const users = this.props.users;
+    for (let user of users) {
+      if (user.username === currUsername) {
+        return true;
+      }
+    }
+    return false;
+  };
   
   handleSubmit = evt => {
     evt.preventDefault();
-    console.log(evt);
+    const userExists = this.contactExists( this.state.user.username );
+    
+    if (!userExists) {
+      this.props.onAddUser(this.state.user);
+    }
+
+    this.setState(() => ({
+      userExists,
+    }));
   }
 
   handleInputChange = evt => {
